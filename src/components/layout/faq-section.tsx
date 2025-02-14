@@ -6,75 +6,45 @@ import { useState } from "react";
 
 const faqs = [
   {
-    question: "Bieden jullie een complete oplossing aan?",
+    question: "Wat houdt een verhuur/verkoop renovatie in?",
     answer: (
       <>
-        <p className="mb-4">
-          Ja, bij Duradomi verzorgen we het complete traject van A tot Z. Dit betekent dat we:
+        <p>
+          Een verhuur/verkoop renovatie is een gerichte renovatie om uw woning optimaal voor te bereiden op de verhuur- of verkoopmarkt. We focussen hierbij op werkzaamheden die de waarde en aantrekkelijkheid van uw woning maximaal verhogen, zoals het moderniseren van sanitair, upgraden van de keuken en het verbeteren van de algemene uitstraling. Deze renovaties worden efficiënt uitgevoerd volgens onze gestandaardiseerde aanpak, waardoor we efficient kunnen opleveren.
         </p>
-        <ul className="list-disc pl-5 mb-4 space-y-2">
-          <li>Het energielabel bepalen en advies geven</li>
-          <li>De isolatie en systemen vakkundig aanbrengen</li>
-          <li>Installaties en aansluitingen aanpassen</li>
-          <li>De complete afwerking verzorgen</li>
-          <li>De werkplek schoon en opgeruimd achterlaten</li>
-        </ul>
-        <p>U hoeft dus niet meerdere partijen in te schakelen; wij regelen alles voor u in één keer.</p>
       </>
     ),
   },
   {
-    question: "Hoe lang duurt een verduurzamingsproject gemiddeld?",
+    question: "Hoe lang duurt een renovatieproject gemiddeld?",
     answer: (
       <>
         <p className="mb-4">
-          Bij Duradomi starten we binnen 2 weken met uw project. De doorlooptijd hangt af van de gekozen maatregelen en de grootte van uw woning. Gemiddeld duurt:
-        </p>
-        <ul className="list-disc pl-5 mb-4 space-y-2">
-          <li>Isolatie (gevel, vloer, dak): 2-3 weken</li>
-          <li>Ventilatie (WTW-systemen): 2-4 dagen</li>
-          <li>Energiesystemen (warmtepompen): 2-3 dagen</li>
-          <li>Glasisolatie (HR++, triple): 1-2 weken</li>
-        </ul>
-        <p>Door onze gestandaardiseerde werkwijze en ervaren teams kunnen we snel en efficiënt werken, zonder concessies te doen aan kwaliteit.</p>
-      </>
-    ),
-  },
-  {
-    question: "Welke isolatiematerialen gebruiken jullie?",
-    answer: "We werken uitsluitend met hoogwaardige, gecertificeerde isolatiematerialen die voldoen aan alle Nederlandse bouwnormen. De exacte materiaalkeuze hangt af van uw specifieke situatie en wensen.",
-  },
-  {
-    question: "Kan ik subsidie krijgen voor verduurzaming?",
-    answer: "Ja, voor veel verduurzamingsmaatregelen zijn er subsidies beschikbaar via de overheid. Als erkend verduurzamingsbedrijf helpen we u graag bij het aanvragen van deze subsidies. We begeleiden u door het hele proces en zorgen ervoor dat u optimaal gebruik maakt van de beschikbare regelingen.",
-  },
-  {
-    question: "Wat is de terugverdientijd van verduurzaming?",
-    answer: (
-      <>
-        <p className="mb-4">
-          De terugverdientijd verschilt per type maatregel en situatie, maar ligt meestal tussen de 3 en 7 jaar. Factoren die hierop van invloed zijn:
+          De doorlooptijd hangt af van de omvang van het project:
         </p>
         <ul className="list-disc pl-5 space-y-2">
-          <li>Het type verduurzaming</li>
-          <li>De huidige staat van uw woning</li>
-          <li>Uw energieverbruik</li>
-          <li>Energieprijzen</li>
+          <li>Verduurzaming: 2-3 weken</li>
+          <li>Verhuur/verkoop renovatie: 1-3 weken</li>
+          <li>Totaal renovatie: 6-8 weken</li>
         </ul>
       </>
     ),
   },
   {
-    question: "Welke garanties bieden jullie?",
-    answer: "Wij geven garantie op onze werkzaamheden. De exacte garantietermijn is afhankelijk van het type renovatie en de gebruikte materialen. Bij het bouwvoorstel ontvangt u een uitgebreid garantieoverzicht met alle details.",
-  },
-  {
-    question: "Kan er tijdens de winter geïsoleerd worden?",
-    answer: "Ja, we kunnen het hele jaar door isoleren. Onze materialen en technieken zijn geschikt voor alle weersomstandigheden.",
+    question: "Kan ik subsidie krijgen voor renovatie?",
+    answer: "Voor bepaalde renovatiewerkzaamheden zijn er subsidies beschikbaar. We helpen u graag bij het verkennen van de mogelijkheden en het aanvragen van beschikbare subsidies.",
   },
   {
     question: "Moet ik thuis zijn tijdens de werkzaamheden?",
-    answer: "Het is niet noodzakelijk om de hele dag thuis te zijn tijdens de werkzaamheden. Wel vragen we u aanwezig te zijn bij de start van de werkdag voor eventuele laatste afstemming en aan het einde voor een eindcontrole en oplevering.",
+    answer: "Het is niet noodzakelijk om de hele dag thuis te zijn. Wel vragen we u aanwezig te zijn bij de start en oplevering van het project.",
+  },
+  {
+    question: "Welke garanties bieden jullie?",
+    answer: "Wij geven garantie op al onze werkzaamheden. De exacte garantietermijn is afhankelijk van het type renovatie en de gebruikte materialen. Bij het bouwvoorstel ontvangt u een uitgebreid garantieoverzicht met alle details.",
+  },
+  {
+    question: "Welke garanties bieden jullie?",
+    answer: "Wij geven garantie op onze werkzaamheden. De exacte garantietermijn is afhankelijk van het type renovatie en de gebruikte materialen. Bij het bouwvoorstel ontvangt u een ",
   },
 ];
 
@@ -167,7 +137,7 @@ export function FAQSection() {
             Veelgestelde vragen
             </h2>
             <p className="text-muted-foreground">
-            Vind antwoorden op veelgestelde vragen over onze isolatiediensten
+            Vind antwoorden op veelgestelde vragen over onze diensten
             </p>
           </motion.div>
 

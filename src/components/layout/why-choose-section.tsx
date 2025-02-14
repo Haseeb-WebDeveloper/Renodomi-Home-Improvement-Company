@@ -4,36 +4,20 @@ import { motion } from "framer-motion";
 
 const features = [
   {
-    title: "Verbeterd wooncomfort",
-    description: "Geniet van een aangenamer binnenklimaat het hele jaar door",
+    title: "Verhoogd wooncomfort",
+    description: "Geniet van een moderne en comfortabele leefomgeving",
     icon: (
-      <svg xmlns="http://www.w3.org/2000/svg" className="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M12 22a10 10 0 1 1 0-20 10 10 0 0 1 0 20z"/>
-        <path d="M8 12h8"/>
-        <path d="M12 16V8"/>
+      <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+        <polyline points="9 22 9 12 15 12 15 22"/>
       </svg>
     ),
   },
   {
     title: "Waardestijging van uw woning",
-    description: "Verhoog de marktwaarde van uw woning met duurzame verbeteringen",
+    description: "Verhoog de marktwaarde van uw woning met professionele renovaties",
     icon: (
-      <svg xmlns="http://www.w3.org/2000/svg" className="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M3 21h18"/>
-        <path d="M19 21v-8a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v8"/>
-        <path d="M13 13h4"/>
-        <path d="M13 17h4"/>
-        <path d="m5 21 8-8v-4"/>
-        <path d="M2 10V3h3v7"/>
-        <path d="M15 5V3h3v7"/>
-      </svg>
-    ),
-  },
-  {
-    title: "Verlaging energiekosten",
-    description: "Bespaar significant op uw maandelijkse energierekening",
-    icon: (
-      <svg xmlns="http://www.w3.org/2000/svg" className="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <path d="M12 2v20"/>
         <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H7"/>
         <path d="M16 19h1"/>
@@ -42,17 +26,25 @@ const features = [
     ),
   },
   {
-    title: "Temperatuurregulatie",
-    description: "Behoud een constante, aangename temperatuur in elk seizoen",
+    title: "Energiebesparing",
+    description: "Bespaar op uw maandelijkse energiekosten door moderne oplossingen",
     icon: (
-      <svg xmlns="http://www.w3.org/2000/svg" className="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M12 9a4 4 0 0 0-2 7.5"/>
-        <path d="M12 3v2"/>
-        <path d="M6.6 18.4"/>
-        <path d="M20 12h2"/>
-        <path d="M4 12H2"/>
-        <circle cx="12" cy="12" r="10"/>
-        <path d="M12 16v3"/>
+      <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M18 20V10"/>
+        <path d="M12 20V4"/>
+        <path d="M6 20v-6"/>
+      </svg>
+    ),
+  },
+  {
+    title: "Moderne uitstraling",
+    description: "Geef uw woning een eigentijdse en frisse uitstraling",
+    icon: (
+      <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M2 12h20"/>
+        <path d="M2 12a10 10 0 0 1 20 0"/>
+        <path d="M2 12a10 10 0 0 0 20 0"/>
+        <path d="M12 2v20"/>
       </svg>
     ),
   },
@@ -70,7 +62,7 @@ export default function WhyChooseSection() {
           className="text-center max-w-3xl mx-auto mb-12"
         >
           <h2 className="text-4xl font-bold mb-2">
-            Waarom kiezen voor isoleren:
+            Waarom kiezen voor renovatie
           </h2>
         </motion.div>
 
@@ -90,7 +82,7 @@ export default function WhyChooseSection() {
 
                 {/* Content */}
                 <div className="relative z-10">
-                  <div className="mb-6 inline-flex items-center justify-center w-16 h-16 rounded-xl bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
+                  <div className="mb-6 inline-flex items-center justify-center p-3 rounded-xl bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
                     {feature.icon}
                   </div>
                   <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>

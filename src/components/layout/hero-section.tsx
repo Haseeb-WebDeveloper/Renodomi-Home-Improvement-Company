@@ -43,7 +43,7 @@ export function HeroSection() {
 
           >
             <span className="inline-block py-1.5 px-4 rounded-full border border-primary/20 text-primary font-medium text-sm">
-               Duurzame woningverbetering
+              Renovatie en woningverbetering
             </span>
           </motion.div>
 
@@ -53,9 +53,9 @@ export function HeroSection() {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="max-w-5xl mx-auto text-4xl md:text-6xl lg:text-7xl font-bold mb-8 bg-clip-text text-transparent bg-gradient-to-r from-foreground to-foreground/70"
           >
-            Specialist in{" "}
+            Specialist in {" "}
             <span className="text-primary">
-            duurzame woningverbetering
+            renovatie en woningverbetering
             </span>
           </motion.h1>
 
@@ -65,7 +65,7 @@ export function HeroSection() {
             transition={{ duration: 0.5, delay: 0.4 }}
             className="text-muted-foreground text-lg md:text-xl mb-12 max-w-2xl mx-auto"
           >
-           Met onze expertise in duurzame oplossingen helpen we huiseigenaren in Midden-Nederland hun woning toekomstbestendig te maken en de waarde te verhogen
+           Met onze expertise in complete renovaties helpen we huiseigenaren in Midden-Nederland hun woning te moderniseren en de waarde te maximaliseren
           </motion.p>
 
           <motion.div
@@ -136,7 +136,7 @@ export function HeroSection() {
               <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
               <polyline points="22 4 12 14.01 9 11.01" />
             </svg>
-            <span className="">Complete verduurzamingsoplossing</span>
+            <span className="">Complete renovatie-oplossing</span>
           </div>
           <div className="flex items-center gap-3 justify-center">
             <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">

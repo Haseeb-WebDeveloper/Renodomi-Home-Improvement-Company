@@ -18,7 +18,7 @@ export function AboutSection() {
             transition={{ duration: 0.5 }}
             className="relative"
           >
-            <div className="relative h-[650px] rounded-xl overflow-hidden">
+            <div className="relative h-[450px] rounded-xl overflow-hidden">
               <Image
                 src="/square-picture.webp"
                 alt="Professional insulation work"
@@ -32,7 +32,7 @@ export function AboutSection() {
             </div>
 
             {/* Stats */}
-            <div className="absolute bottom-6 right-6 bg-background/80 backdrop-blur-lg rounded-xl p-6 shadow-lg">
+            {/* <div className="absolute bottom-6 right-6 bg-background/80 backdrop-blur-lg rounded-xl p-6 shadow-lg">
               <div className="grid grid-cols-2 gap-6">
                 <div>
                   <div className="text-3xl font-bold text-primary">€85/m²</div>
@@ -43,7 +43,7 @@ export function AboutSection() {
                   <div className="text-sm text-muted-foreground">Jaren ervaring</div>
                 </div>
               </div>
-            </div>
+            </div> */}
 
           </motion.div>
 
@@ -60,38 +60,22 @@ export function AboutSection() {
 
             <div className="space-y-6 text-muted-foreground">
               <p>
-              Duradomi is een gespecialiseerd verduurzamingsbedrijf dat zich richt op het energiezuiniger maken van woningen en bedrijfspanden in heel midden-Nederland. Als expert in duurzame woningverbetering hebben we ruime ervaring in de verduurzamingsbranche.
+              Renodomi is een gespecialiseerd renovatiebedrijf dat zich richt op het verbeteren van woningen en bedrijfspanden in heel midden-Nederland. Als expert in woningverbetering hebben we ruime ervaring in de renovatiebranche.
               </p>
               
               <p>
-              Onze missie is om huiseigenaren te helpen hun energierekening te verlagen en hun wooncomfort te verhogen. Dit doen we door het leveren van hoogwaardige verduurzamingsoplossingen, uitgevoerd door ons vakkundige team.
+              Onze missie is om huiseigenaren te helpen hun woning te moderniseren en de waarde te verhogen. Dit doen we door het leveren van hoogwaardige renovatie-oplossingen, uitgevoerd door ons vakkundige team.
               </p>
               
               <p>
-              Bij Duradomi begrijpen we dat elke woning uniek is. Daarom bieden we persoonlijk advies en maatwerk oplossingen die perfect aansluiten bij uw situatie en wensen. Van de eerste inspectie tot de laatste afwerking, u kunt rekenen op onze professionele aanpak en kwaliteitsgarantie.
+              Bij Renodomi begrijpen we dat elke woning uniek is. Daarom bieden we persoonlijk advies en maatwerk oplossingen die perfect aansluiten bij uw situatie en wensen. Van de eerste inspectie tot de laatste afwerking, u kunt rekenen op onze professionele aanpak en kwaliteitsgarantie.
               </p>
-              
-              <p>
-              Als ervaren verduurzamingsbedrijf helpen we u ook graag bij het aanvragen van beschikbare subsidies. Zo maken we verduurzaming niet alleen comfortabel, maar ook betaalbaar.
-              </p>
+
             </div>
 
             {/* CTA Section */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.4 }}
-              className="mt-8 p-6 bg-primary/5 rounded-xl border border-primary/10"
-            >
-              <div className="text-xl font-semibold mb-2">
-              Totale woningverduurzaming vanaf  €85/m²
-              </div>
-              <p className="text-muted-foreground mb-4">
-                Bespaar direct op uw energierekening!
-              </p>
               <Link href="#contact">
-              <Button size="lg" className="w-full sm:w-auto">
+              <Button size="lg" className="w-full sm:w-auto mt-8">
                  Ontvang uw gratis offerte
                 <svg
 
@@ -111,7 +95,6 @@ export function AboutSection() {
                 </svg>
               </Button>
               </Link>
-            </motion.div>
           </motion.div>
 
         </div>

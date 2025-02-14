@@ -575,7 +575,7 @@ export function ContactSection() {
               <h3 className="text-xl font-semibold">Waarom kiezen voor onze diensten?</h3>
               <ul className="space-y-3">
                 {[
-                  "Complete verduurzamingsoplossing",
+                  "Complete renovatie-oplossing",
                   "Startdatum binnen 2 weken",
                   "Actief in Midden-Nederland",
                   "Subsidie-begeleiding",

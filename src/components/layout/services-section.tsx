@@ -7,13 +7,13 @@ import Link from "next/link";
 
 const services = [
   {
-    title: "Isolatie",
-    paragraph: "Maximaal rendement door professionele isolatie",
+    title: "Verduurzaming",
+    paragraph: "Maak uw woning toekomstbestendig met duurzame oplossingen die uw energiekosten verlagen en het wooncomfort verhogen.",
     image: "/isolatie.jpg",
     features: [
-      "Gevelisolatie",
-      "Dakisolatie", 
-      "Vloerisolatie"
+      "Isolatie- en glaswerkzaamheden",
+      "Energiesystemen",
+      "Subsidieadvies voor verduurzaming"
     ],
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -24,12 +24,13 @@ const services = [
     )
   },
   {
-    title: "Ventilatie",
-    paragraph: "Gezond binnenklimaat door moderne ventilatiesystemen",
+    title: "Verhuur/verkoop renovatie",
+    paragraph: "Wij bereiden uw vastgoed optimaal voor op verhuur of verkoop, met een gerichte focus op waardevermeerdering.",
     image: "/Ventilatie.jpg",
     features: [
-      "WTW-systemen",
-      "Mechanische ventilatie"
+      "Waardeverhoging bij verhuur en verkoop",
+      "Efficiënte renovatie met standaardpakketten",
+      "Snelle en planmatige uitvoering"
     ],
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -40,27 +41,13 @@ const services = [
     )
   },
   {
-    title: "Energiesystemen",
-    paragraph: "Duurzame energie-installaties voor uw woning",
-    image: "/Energysystemen.jpg",
+    title: "Totaal renovatie",
+    paragraph: "Complete transformatie van uw woning, van vloer tot plafond. We moderniseren elke ruimte vakkundig volgens de hoogste kwaliteitseisen.",
+    image: "/Energysystemen.jpg", 
     features: [
-      "Warmtepompen",
-      "CV-ketels"
-    ],
-    icon: (
-      <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <rect width="18" height="18" x="3" y="3" rx="2" />
-        <path d="M3 15h18" />
-      </svg>
-    )
-  },
-  {
-    title: "Glasisolatie",
-    paragraph: "HR++ en triple glas voor optimale isolatie",
-    image: "/glass.jpg",
-    features: [
-      "HR++ glas",
-      "Triple glas"
+      "Complete modernisering",
+      "Renovatie van alle ruimtes",
+      "Turn-key oplevering"
     ],
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -89,7 +76,7 @@ export function ServicesSection() {
         </motion.div>
 
         {/* Services Grid */}
-        <div className="grid md:grid-cols-4 gap-4">
+        <div className="grid md:grid-cols-3 gap-4">
           {services.map((service, index) => (
             <motion.div
               key={service.title}

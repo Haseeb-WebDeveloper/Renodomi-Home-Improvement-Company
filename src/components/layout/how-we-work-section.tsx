@@ -6,7 +6,8 @@ const steps = [
   {
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" /><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
+        <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7" />
+        <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z" />
       </svg>
     ),
     title: "Professionele aanpak",
@@ -15,21 +16,21 @@ const steps = [
   {
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
       </svg>
     ),
     title: "Volledige ontzorging",
-    description: "Wij werken met regelmatige updates en duidelijke communicatie gedurende het hele project, zodat u altijd op de hoogte bent van de voortgang.",
+    description: "Wij werken met regelmatige updates en duidelijke communicatie gedurende het hele project.",
   },
   {
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3" />
-        <path d="M12 8v4" /><path d="M12 16h.01" />
+        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+        <polyline points="22 4 12 14.01 9 11.01" />
       </svg>
     ),
-    title: "Gestandaardiseerde aanpak",
-    description: "Door onze efficiënte werkwijze en bewezen optimalisatie-pakketten kunnen we projecten, zowel effectief als kwalitatief goed uitvoeren.",
+    title: "Gestandaardiseerde aanpak", 
+    description: "Door onze efficiënte werkwijze kunnen we projecten effectief en kwalitatief goed uitvoeren.",
   },
   {
     icon: (
@@ -38,7 +39,7 @@ const steps = [
       </svg>
     ),
     title: "Kwaliteitsgarantie",
-    description: "We werken met professionele teams en hoogwaardige materialen om het beste resultaat te leveren aan onze klanten.",
+    description: "We werken met professionele teams en hoogwaardige materialen.",
   },
 ];
 
@@ -61,7 +62,7 @@ export function HowWeWorkSection() {
         >
           <h2 className="text-4xl font-bold mb-6">Onze Werkwijze</h2>
           <p className="text-muted-foreground text-lg">
-          Bij Duradomi staat kwaliteit en efficiëntie voorop. Als specialist in woningverbetering en verduurzaming bieden wij een all-in-one oplossing waarbij we het hele proces van A tot Z verzorgen</p>
+          Bij Renodomi staat kwaliteit en efficiëntie voorop. Als specialist in woningverbetering bieden wij een all-in-one oplossing waarbij we het hele proces van A tot Z verzorgen</p>
         </motion.div>
 
         {/* Steps Grid */}
