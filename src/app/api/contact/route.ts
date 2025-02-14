@@ -178,7 +178,7 @@ export async function POST(req: Request) {
     const autoReplyOptions = {
       from: process.env.SENDER_EMAIL,
       to: data.email,
-      subject: "Bedankt voor uw aanvraag - Duradomi",
+      subject: "Bedankt voor uw aanvraag - Renodomi",
       html: `
         <div style="font-family: Arial, sans-serif; padding: 20px; max-width: 600px; margin: 0 auto;">
           <h2 style="color: #333;">Bedankt voor uw aanvraag</h2>
@@ -194,7 +194,7 @@ export async function POST(req: Request) {
           
           <p>We nemen binnen 24-48 uur contact met u op om uw aanvraag te bespreken.</p>
           
-          <p>Met vriendelijke groet,<br>Team Duradomi</p>
+          <p>Met vriendelijke groet,<br>Team Renodomi</p>
         </div>
       `
     };

@@ -632,9 +632,9 @@ export function ContactSection() {
                   </svg>
                 </div>
                 <div>
-                  <Link href="mailto:info@Duradomi.nl">
+                  <Link href="mailto:info@Renodomi.nl">
                     <h3 className="font-semibold mb-1">Email</h3>
-                    <p className="text-muted-foreground">info@Duradomi.nl</p>
+                    <p className="text-muted-foreground">info@Renodomi.nl</p>
                   </Link>
                 </div>
 

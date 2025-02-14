@@ -12,7 +12,7 @@ export function Footer() {
           <Link href="/">
             <Image
               src="/logo.jpg"
-              alt="Duradomi Logo"
+              alt="Renodomi Logo"
               width={140}
               height={40}
               className="w-20"

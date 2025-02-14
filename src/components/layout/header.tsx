@@ -81,7 +81,7 @@ export function Header() {
           <Link href="#hero" className="flex items-center gap-2">
             <Image src="/logo.jpg" alt="Logo" width={100} height={100} className="w-10 h-10" />
             <h1 className="text-2xl font-bold text-primary hover:text-primary/90 transition-colors">
-              Duradomi
+              Renodomi
 
             </h1>
           </Link>

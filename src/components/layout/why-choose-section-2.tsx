@@ -62,7 +62,7 @@ export function WhyChooseSection2() {
             Waarom kiezen voor renovatie ?
           </h2>
           <p className="text-gray-600 max-w-xl mx-auto">
-            Duradomi is a construction company that builds homes for people. We are a team of experienced professionals who are dedicated to providing the best possible service to our clients.
+            Renodomi is a construction company that builds homes for people. We are a team of experienced professionals who are dedicated to providing the best possible service to our clients.
           </p>
         </motion.div>
 

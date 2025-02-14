@@ -1,10 +1,10 @@
-# Duradomi - Sustainable Home Improvement Website
+# Renodomi - Sustainable Home Improvement Website
 
-A modern, responsive website built with Next.js for Duradomi, a specialist in sustainable home improvements in central Netherlands.
+A modern, responsive website built with Next.js for Renodomi, a specialist in sustainable home improvements in central Netherlands.
 
 ## Overview
 
-This website serves as a digital platform for Duradomi's insulation and sustainability services, featuring:
+This website serves as a digital platform for Renodomi's insulation and sustainability services, featuring:
 
 - Comprehensive information about home insulation services
 - Interactive quote request system
