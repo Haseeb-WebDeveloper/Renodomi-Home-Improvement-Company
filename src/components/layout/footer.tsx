@@ -19,9 +19,9 @@ export function Footer() {
             />
           </Link>
 
-          <div className="text-muted-foreground">
+          {/* <div className="text-muted-foreground">
             <p>Werkgebied: heel Nederland</p>
-          </div>
+          </div> */}
 
           {/* Company Info */}
           <div className="text-muted-foreground space-y-2">

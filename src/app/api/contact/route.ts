@@ -71,7 +71,7 @@ const serviceConfig: ServiceConfig = {
     label: "Energiesystemen",
     subServices: [
       { id: "warmtepompen", label: "Warmtepompen" },
-      { id: "cvKetels", label: "CV-ketels" },
+      { id: "hrKetels", label: "hr-ketels" },
     ],
   },
   glasisolatie: {

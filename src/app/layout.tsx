@@ -5,8 +5,8 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 export const metadata: Metadata = {
-  title: "Renodomi - Specialist in duurzame woningverbetering",
-  description: "Renodomi is specialist in duurzame woningverbetering. Wij helpen woningeigenaren in Midden-Nederland hun huis energiezuinig en comfortabel te maken.",
+  title: "renodomi - Specialist in duurzame woningverbetering",
+  description: "renodomi is specialist in duurzame woningverbetering. Wij helpen woningeigenaren in Midden-Nederland hun huis energiezuinig en comfortabel te maken.",
 };
 
 export default function RootLayout({

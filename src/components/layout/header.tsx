@@ -34,9 +34,12 @@ export function Header() {
   }, []);
 
   const navItems = [
+    { name: "renodomi", href: "https://renodomi.nl/" },
     { name: "Over ons", href: "#about" },
     { name: "Diensten", href: "#services" },
     { name: "Contact", href: "#contact" },
+    { name: "duradomi", href: "https://duradomi.nl/" },
+    { name: "isodomi", href: "https://isodomi.nl/" },
   ];
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement | HTMLButtonElement>, href: string) => {
@@ -81,8 +84,7 @@ export function Header() {
           <Link href="#hero" className="flex items-center gap-2">
             <Image src="/logo.jpg" alt="Logo" width={100} height={100} className="w-10 h-10" />
             <h1 className="text-2xl font-bold text-primary hover:text-primary/90 transition-colors">
-              Renodomi
-
+              renodomi
             </h1>
           </Link>
 
@@ -94,7 +96,7 @@ export function Header() {
                 key={item.name}
                 href={item.href}
                 onClick={(e) => handleNavClick(e, item.href)}
-                className="relative group text-sm font-medium"
+                className="relative group text-base font-medium"
               >
                 {item.name}
                 <span className="absolute -right-4 top-1/2 -translate-y-1/2 w-1 h-1 rounded-full bg-primary opacity-0 transition-all duration-300 group-hover:opacity-70 group-hover:-right-6" />
