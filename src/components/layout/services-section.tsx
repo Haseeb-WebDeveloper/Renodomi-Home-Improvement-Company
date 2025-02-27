@@ -26,7 +26,7 @@ const services = [
   {
     title: "Verhuur/verkoop renovatie",
     paragraph: "Wij bereiden uw vastgoed optimaal voor op verhuur of verkoop, met een gerichte focus op waardevermeerdering.",
-    image: "/Ventilatie.jpg",
+    image: "/Verhuurklaar.jpg",
     features: [
       "Waardeverhoging bij verhuur en verkoop",
       "Efficiënte renovatie met standaardpakketten",
@@ -95,7 +95,7 @@ export function ServicesSection() {
                       src={service.image}
                       alt={service.title}
                       fill
-                      className="object-cover transition-transform duration-500 group-hover:scale-110"
+                      className="object-cover object-top transition-transform duration-500 group-hover:scale-110"
                     />
                   </div>
 

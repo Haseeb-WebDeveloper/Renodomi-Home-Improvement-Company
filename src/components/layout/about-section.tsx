@@ -20,7 +20,7 @@ export function AboutSection() {
           >
             <div className="relative h-[450px] rounded-xl overflow-hidden">
               <Image
-                src="/square-picture.webp"
+                src="/square-picture.jpg"
                 alt="Professional insulation work"
                 fill
                 className="object-cover"

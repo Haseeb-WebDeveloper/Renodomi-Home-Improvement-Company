@@ -95,7 +95,7 @@ export function Header() {
               <Link
                 key={item.name}
                 href={item.href}
-                onClick={(e) => handleNavClick(e, item.href)}
+                // onClick={(e) => handleNavClick(e, item.href)}
                 className="relative group text-base font-medium"
               >
                 {item.name}
@@ -115,7 +115,7 @@ export function Header() {
           {/* CTA Button & Mobile Menu Button */}
           <div className="flex items-center gap-4">
             <Button 
-              className="hidden md:inline-flex px-8 py-4"
+              className="hidden md:inline-flex px-8 py-4 bg-foreground/90 text-background hover:bg-foreground/80"
               onClick={(e) => handleNavClick(e as any, "#contact")}
             >
               Aan de slag
@@ -162,7 +162,7 @@ export function Header() {
                   <a
                     key={item.name}
                     href={item.href}
-                    onClick={(e) => handleNavClick(e, item.href)}
+                    // onClick={(e) => handleNavClick(e, item.href)}
                     className="block px-4 py-2 text-sm hover:bg-accent rounded-md transition-colors"
                   >
                     {item.name}
@@ -170,7 +170,7 @@ export function Header() {
                 ))}
                 <div className="px-4 pt-2">
                   <Button 
-                    className="w-full"
+                    className="w-full bg-foreground/90 text-background hover:bg-foreground/80"
                     onClick={(e) => handleNavClick(e, "#contact")}
                   >
                     Aan de slag

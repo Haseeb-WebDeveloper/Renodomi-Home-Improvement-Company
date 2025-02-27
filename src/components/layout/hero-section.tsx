@@ -75,7 +75,7 @@ export function HeroSection() {
             className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16"
           >
           <Link href="#contact">
-            <Button size="lg" className="text-base min-w-[250px] h-12">
+            <Button size="lg" className="text-base min-w-[250px] h-12 bg-foreground/90 text-background hover:bg-foreground/80">
               Aan de slag
               <motion.svg
                 xmlns="http://www.w3.org/2000/svg"
