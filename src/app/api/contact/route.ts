@@ -14,26 +14,26 @@ interface ServiceConfig {
 }
 
 interface FormServices {
-  isolatie: boolean;
-  isolatieType: {
-    gevelisolatie: boolean;
-    dakisolatie: boolean;
-    vloerisolatie: boolean;
+  Verduurzaming: boolean;
+  VerduurzamingType: {
+    Isolatie: boolean;
+    Ventilatie: boolean;
+    Energiesystemen: boolean;
+    Glas: boolean;
   };
-  ventilatie: boolean;
-  ventilatieType: {
-    wtwSystemen: boolean;
-    mechanischeVentilatie: boolean;
+  VerhuurVerkoopRenovatie: boolean;
+  VerhuurVerkoopRenovatieType: {
+    Schilderwerk: boolean;
+    Badkamerrenovatie: boolean;
+    Keukenrenovatie: boolean;
+    Anders: boolean;
   };
-  energiesystemen: boolean;
-  energieType: {
-    warmtepompen: boolean;
-    cvKetels: boolean;
-  };
-  glasisolatie: boolean;
-  glasType: {
-    hrPlusPlus: boolean;
-    tripleGlas: boolean;
+  TotaalRenovatie: boolean;
+  TotaalRenovatieType: {
+    Woningsplitsing: boolean;
+    HerindelingWoning: boolean;
+    Totaalrenovatie: boolean;
+    Anders: boolean;
   };
   [key: string]: boolean | Record<string, boolean>;
 }

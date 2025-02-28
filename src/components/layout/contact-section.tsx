@@ -22,28 +22,24 @@ interface ServiceConfig {
 }
 
 interface FormServices {
-  isolatie: boolean;
-  isolatieType: {
-    gevelisolatie: boolean;
-    dakisolatie: boolean;
-    vloerisolatie: boolean;
+  Verduurzaming: {
+    Isolatie: boolean;
+    Ventilatie: boolean;
+    Energiesystemen: boolean;
+    Glas: boolean;
   };
-  ventilatie: boolean;
-  ventilatieType: {
-    wtwSystemen: boolean;
-    mechanischeVentilatie: boolean;
+  VerhuurVerkoopRenovatie: {
+    Schilderwerk: boolean;
+    Badkamerrenovatie: boolean;
+    Keukenrenovatie: boolean;
+    Anders: boolean;
   };
-  energiesystemen: boolean;
-  energieType: {
-    warmtepompen: boolean;
-    cvKetels: boolean;
+  TotaalRenovatie: {
+    Woningsplitsing: boolean;
+    HerindelingWoning: boolean;
+    Totaalrenovatie: boolean;
+    Anders: boolean;
   };
-  glasisolatie: boolean;
-  glasType: {
-    hrPlusPlus: boolean;
-    tripleGlas: boolean;
-  };
-  [key: string]: boolean | Record<string, boolean>;
 }
 
 interface FormData {
@@ -63,26 +59,23 @@ interface FormData {
 
 const initialFormData: FormData = {
   services: {
-    isolatie: false,
-    isolatieType: {
-      gevelisolatie: false,
-      dakisolatie: false,
-      vloerisolatie: false,
+    Verduurzaming: {
+      Isolatie: false,
+      Ventilatie: false,
+      Energiesystemen: false,
+      Glas: false,
     },
-    ventilatie: false,
-    ventilatieType: {
-      wtwSystemen: false,
-      mechanischeVentilatie: false,
+    VerhuurVerkoopRenovatie: {
+      Schilderwerk: false,
+      Badkamerrenovatie: false,
+      Keukenrenovatie: false,
+      Anders: false,
     },
-    energiesystemen: false,
-    energieType: {
-      warmtepompen: false,
-      cvKetels: false,
-    },
-    glasisolatie: false,
-    glasType: {
-      hrPlusPlus: false,
-      tripleGlas: false,
+    TotaalRenovatie: {
+      Woningsplitsing: false,
+      HerindelingWoning: false,
+      Totaalrenovatie: false,
+      Anders: false,
     },
   },
   street: "",
@@ -132,33 +125,31 @@ interface FormErrors {
 
 // Add service configuration
 const serviceConfig: ServiceConfig = {
-  isolatie: {
-    label: "Isolatie",
+  verduurzaming: {
+    label: "Verduurzaming",
     subServices: [
-      { id: "gevelisolatie", label: "Gevelisolatie" },
-      { id: "dakisolatie", label: "Dakisolatie" },
-      { id: "vloerisolatie", label: "Vloerisolatie" },
+      { id: "isolatie", label: "Isolatie" },
+      { id: "ventilatie", label: "Ventilatie" },
+      { id: "energiesystemen", label: "Energiesystemen" },
+      { id: "glas", label: "Glas" },
     ],
   },
-  ventilatie: {
-    label: "Ventilatie",
+  verhuurVerkoopRenovatie: {
+    label: "Verhuur/verkoop renovatie",
     subServices: [
-      { id: "wtwSystemen", label: "WTW-systemen" },
-      { id: "mechanischeVentilatie", label: "Mechanische ventilatie" },
+      { id: "schilderwerk", label: "Schilderwerk" },
+      { id: "badkamerrenovatie", label: "Badkamerrenovatie" },
+      { id: "keukenrenovatie", label: "Keukenrenovatie" },
+      { id: "anders", label: "Anders" },
     ],
   },
-  energiesystemen: {
-    label: "Energiesystemen",
+  totaalRenovatie: {
+    label: "Totaal renovatie",
     subServices: [
-      { id: "warmtepompen", label: "Warmtepompen" },
-      { id: "cvKetels", label: "CV-ketels" },
-    ],
-  },
-  glasisolatie: {
-    label: "Glasisolatie",
-    subServices: [
-      { id: "hrPlusPlus", label: "HR++ glas" },
-      { id: "tripleGlas", label: "Triple glas" },
+      { id: "woningsplitsing", label: "Woningsplitsing" },
+      { id: "herindelingWoning", label: "Herindeling woning" },
+      { id: "totaalrenovatie", label: "Totaalrenovatie" },
+      { id: "anders", label: "Anders" },
     ],
   },
 };
@@ -271,7 +262,7 @@ export function ContactSection() {
                   <label className="flex items-center p-4 cursor-pointer">
                     <input
                       type="checkbox"
-                      checked={(formData.services[serviceKey as keyof FormServices] as boolean) || false}
+                      checked={(formData.services[serviceKey as keyof FormServices] as unknown as boolean) || false}
                       onChange={(e) => {
                         const isChecked = e.target.checked;
                         setFormData(prev => {
@@ -290,14 +281,14 @@ export function ContactSection() {
                       }}
                       className="h-5 w-5 rounded border-gray-300"
                     />
-                    <div className="ml-3 text-lg font-medium text-black dark:text-white">
+                    <div className="ml-3 text-lg font-medium ">
                       {serviceData.label}
                     </div>
                   </label>
                 </div>
 
-                {(formData.services[serviceKey as keyof FormServices] as boolean) && (
-                  <div className="ml-8 grid grid-cols-1 sm:grid-cols-2 gap-3">
+                {(formData.services[serviceKey as keyof FormServices] as unknown as boolean) && (
+                  <div className="ml-8 grid grid-cols-1 sm:grid-cols-2 gap-3 ">
                     {serviceData.subServices.map((subService) => (
                       <div key={subService.id} className="border rounded-lg">
                         <label className="flex items-center p-3 cursor-pointer">
@@ -326,7 +317,7 @@ export function ContactSection() {
                             }}
                             className="h-4 w-4 rounded border-gray-300"
                           />
-                          <div className="ml-3 text-sm text-black dark:text-white">
+                          <div className="ml-3 text-sm ">
                             {subService.label}
                           </div>
                         </label>
@@ -501,7 +492,7 @@ export function ContactSection() {
                   <div key={index} className="flex items-center">
                     <div className={`
                       w-8 h-8 rounded-full flex items-center justify-center
-                      ${index === currentStep ? 'bg-primary text-white' : 'bg-gray-200'}
+                      ${index === currentStep ? 'bg-foreground/60 text-background' : 'bg-foreground/20'}
                     `}>
                       {index + 1}
                     </div>
@@ -529,7 +520,7 @@ export function ContactSection() {
                       </Button>
                     )}
                     <Button
-                      className="w-full"
+                      className="w-full bg-foreground/60 text-background hover:bg-foreground/80"
                       onClick={handleNext}
                       disabled={isLoading}
                     >
