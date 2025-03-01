@@ -128,7 +128,7 @@ export function ServicesSection() {
                 <div className="p-6 pt-0">
                   <Link
                     href="#contact"
-                    className="flex items-center justify-center px-4 py-2 rounded-md bg-foreground/90 text-background w-full group-hover:bg-primary/80 group-hover:text-primary-foreground transition-colors"
+                    className="flex items-center justify-center px-4 py-2 rounded-md bg-foreground/90 text-background w-full group-hover:bg-foreground/80 group-hover:text-primary-foreground transition-colors"
                   >
                     Contact Ons
                     <svg

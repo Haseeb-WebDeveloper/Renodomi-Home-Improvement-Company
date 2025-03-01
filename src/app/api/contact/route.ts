@@ -49,6 +49,10 @@ interface FormData {
   email: string;
   phone: string;
   additionalInfo: string;
+  customInputs: {
+    verhuurVerkoopRenovatie: string;
+    totaalRenovatie: string;
+  };
 }
 
 const serviceConfig: ServiceConfig = {
@@ -165,6 +169,20 @@ export async function POST(req: Request) {
             <div style="margin: 20px 0; padding: 15px; background: #f9f9f9; border-radius: 5px;">
               <h3 style="color: #666; margin-top: 0;">Aanvullende informatie:</h3>
               <p style="margin-bottom: 0;">${data.additionalInfo}</p>
+            </div>
+          ` : ''}
+          
+          ${data.customInputs.verhuurVerkoopRenovatie ? `
+            <div style="margin: 20px 0; padding: 15px; background: #f9f9f9; border-radius: 5px;">
+              <h3 style="color: #666; margin-top: 0;">Verhuur/Verkoop Renovatie:</h3>
+              <p style="margin-bottom: 0;">${data.customInputs.verhuurVerkoopRenovatie}</p>
+            </div>
+          ` : ''}
+
+          ${data.customInputs.totaalRenovatie ? `
+            <div style="margin: 20px 0; padding: 15px; background: #f9f9f9; border-radius: 5px;">
+              <h3 style="color: #666; margin-top: 0;">Totaal Renovatie:</h3>
+              <p style="margin-bottom: 0;">${data.customInputs.totaalRenovatie}</p>
             </div>
           ` : ''}
         </div>

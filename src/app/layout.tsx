@@ -4,6 +4,8 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
+import { ContactPopupProvider } from "@/components/provider/contact-popup-provider";
+
 export const metadata: Metadata = {
   title: "renodomi - Specialist in duurzame woningverbetering",
   description: "renodomi is specialist in duurzame woningverbetering. Wij helpen woningeigenaren in Midden-Nederland hun huis energiezuinig en comfortabel te maken.",
@@ -23,9 +25,11 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <Header />
-          {children}
-          <Footer />
+          <ContactPopupProvider>
+            <Header />
+            {children}
+            <Footer />
+          </ContactPopupProvider>
         </ThemeProvider>
       </body>
     </html>

@@ -55,6 +55,11 @@ interface FormData {
   email: string;
   phone: string;
   additionalInfo: string;
+  // Custom inputs for Anders options
+  customInputs: {
+    verhuurVerkoopRenovatie: string;
+    totaalRenovatie: string;
+  };
 }
 
 const initialFormData: FormData = {
@@ -87,6 +92,10 @@ const initialFormData: FormData = {
   email: "",
   phone: "",
   additionalInfo: "",
+  customInputs: {
+    verhuurVerkoopRenovatie: "",
+    totaalRenovatie: "",
+  },
 };
 
 const steps = [
@@ -321,6 +330,29 @@ export function ContactSection() {
                             {subService.label}
                           </div>
                         </label>
+
+                        {/* Show input field if "Anders" is checked */}
+                        {subService.id === "anders" && 
+                          (formData.services[`${serviceKey}Type` as keyof FormServices] as Record<string, boolean>)?.["anders"] && (
+                            <div className="p-3 pt-0">
+                              <Input
+                                type="text"
+                                placeholder="Vul hier uw tekst in"
+                                value={formData.customInputs[serviceKey as keyof typeof formData.customInputs] || ""}
+                                onChange={(e) => {
+                                  setFormData((prev) => ({
+                                    ...prev,
+                                    customInputs: {
+                                      ...prev.customInputs,
+                                      [serviceKey]: e.target.value
+                                    }
+                                  }));
+                                }}
+                                className="mt-2 border border-gray-300 rounded w-full"
+                              />
+                            </div>
+                          )
+                        }
                       </div>
                     ))}
                   </div>
@@ -561,7 +593,7 @@ export function ContactSection() {
             </div>
 
 
-            {/* Why Contact Ons */}
+            {/* Why Contact Ons */}
             <div className="space-y-4">
               <h3 className="text-xl font-semibold">Waarom kiezen voor onze diensten?</h3>
               <ul className="space-y-3">
@@ -636,4 +668,4 @@ export function ContactSection() {
       </div>
     </section>
   );
-} 
+}

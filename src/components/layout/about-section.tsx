@@ -75,7 +75,7 @@ export function AboutSection() {
 
             {/* CTA Section */}
               <Link href="#contact">
-              <Button size="lg" className="w-full sm:w-auto mt-8">
+              <Button size="lg" className="w-full sm:w-auto mt-8 bg-foreground/90 text-background hover:bg-foreground/80">
                  Ontvang uw gratis offerte
                 <svg
 
