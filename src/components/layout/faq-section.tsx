@@ -42,10 +42,6 @@ const faqs = [
     question: "Welke garanties bieden jullie?",
     answer: "Wij geven garantie op al onze werkzaamheden. De exacte garantietermijn is afhankelijk van het type renovatie en de gebruikte materialen. Bij het bouwvoorstel ontvangt u een uitgebreid garantieoverzicht met alle details.",
   },
-  {
-    question: "Welke garanties bieden jullie?",
-    answer: "Wij geven garantie op onze werkzaamheden. De exacte garantietermijn is afhankelijk van het type renovatie en de gebruikte materialen. Bij het bouwvoorstel ontvangt u een ",
-  },
 ];
 
 function FAQItem({ question, answer, isOpen, onToggle, index }: { question: string; answer: React.ReactNode; isOpen: boolean; onToggle: () => void; index: number; }) {

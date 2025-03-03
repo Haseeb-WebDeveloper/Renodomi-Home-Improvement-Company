@@ -140,7 +140,7 @@ export function Header() {
               className="hidden md:inline-flex px-8 py-4 bg-foreground/70 text-white hover:bg-foreground/80 transition-colors"
               onClick={openContactPopup}
             >
-              Aan de slag
+              aan de slag
             </Button>
 
             {/* Mobile Menu Button */}
@@ -184,12 +184,14 @@ export function Header() {
               <div className="py-4 space-y-4">
                 <Link
                   href="https://isodomi.nl/"
+                  onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                   className="block px-4 py-2 text-sm hover:bg-accent rounded-md transition-colors"
                 >
                   isodomi
                 </Link>
                 <Link
                   href="https://duradomi.nl/"
+                  onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                   className="block px-4 py-2 text-sm hover:bg-accent rounded-md transition-colors"
                 >
                   duradomi
@@ -197,18 +199,21 @@ export function Header() {
                 <div className="block px-4 py-2 text-sm hover:bg-accent rounded-md transition-colors">
                   <Link
                     href="https://renodomi.nl/"
+                    onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                   >
                     renodomi
                   </Link>
                   <div className="pl-4 mt-2 space-y-2">
                     <Link
                       href="#about"
+                      onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                       className="block px-4 py-2 text-sm hover:bg-accent rounded-md transition-colors"
                     >
                       over ons
                     </Link>
                     <Link
                       href="#services"
+                      onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                       className="block px-4 py-2 text-sm hover:bg-accent rounded-md transition-colors"
                     >
                       diensten
@@ -217,13 +222,13 @@ export function Header() {
                       className="block px-4 py-2 text-sm hover:bg-accent rounded-md transition-colors cursor-pointer"
                       onClick={openContactPopup}
                     >
-                      Aan de slag
+                      aan de slag
                     </a>
                   </div>
                 </div>
-                <div className="px-4 pt-2">
+                <div className="px-4 py-2 bg-foreground/80 text-white rounded-md flex justify-center">
                   <Button onClick={openContactPopup} className="w-full">
-                    Aan de slag
+                    aan de slag
                   </Button>
                 </div>
               </div>
