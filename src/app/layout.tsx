@@ -18,6 +18,20 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={GeistSans.className}>
+      <head>
+        {/* Google Tag (gtag.js) */}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-CCPMRV0Q8G"></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-CCPMRV0Q8G');
+            `,
+          }}
+        />
+      </head>
       <body className="antialiased">
         <ThemeProvider
           attribute="class"
