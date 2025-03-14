@@ -27,6 +27,11 @@ export function Footer() {
           <div className="text-muted-foreground space-y-2">
             <p>© 2025 Renodomi | KvK 94082286 | BTW NL866629191B01</p>
           </div>
+          <div className="text-muted-foreground">
+            <Link className="hover:underline hover:text-primary" href="https://haseebkhan.online/" target="_blank" rel="noopener noreferrer">
+              <p>Developed by Haseeb Khan</p>
+            </Link>
+          </div>
         </div>
 
       </div>
