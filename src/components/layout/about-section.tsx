@@ -60,7 +60,7 @@ export function AboutSection() {
 
             <div className="space-y-6 text-muted-foreground">
               <p>
-              Renodomi is een gespecialiseerd renovatiebedrijf dat zich richt op het verbeteren van woningen en bedrijfspanden in heel midden-Nederland. Als expert in woningverbetering hebben we ruime ervaring in de renovatiebranche.
+              Renodomi is een gespecialiseerd renovatiebedrijf dat zich richt op het verbeteren van woningen en bedrijfspanden in heel de randstad. Als expert in woningverbetering hebben we ruime ervaring in de renovatiebranche.
               </p>
               
               <p>

@@ -8,7 +8,7 @@ import { ContactPopupProvider } from "@/components/provider/contact-popup-provid
 
 export const metadata: Metadata = {
   title: "renodomi - Specialist in duurzame woningverbetering",
-  description: "renodomi is specialist in duurzame woningverbetering. Wij helpen woningeigenaren in Midden-Nederland hun huis energiezuinig en comfortabel te maken.",
+  description: "renodomi is specialist in duurzame woningverbetering. Wij helpen woningeigenaren in de randstad hun huis energiezuinig en comfortabel te maken.",
 };
 
 export default function RootLayout({

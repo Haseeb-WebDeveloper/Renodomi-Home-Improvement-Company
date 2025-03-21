@@ -65,7 +65,7 @@ export function HeroSection() {
             transition={{ duration: 0.5, delay: 0.4 }}
             className="text-muted-foreground text-lg md:text-xl mb-12 max-w-2xl mx-auto"
           >
-           Met onze expertise in complete renovaties helpen we huiseigenaren in Midden-Nederland hun woning te moderniseren en de waarde te maximaliseren
+           Met onze expertise in complete renovaties helpen we huiseigenaren in de randstad hun woning te moderniseren en de waarde te maximaliseren
           </motion.p>
 
           <motion.div
@@ -143,7 +143,7 @@ export function HeroSection() {
               <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
               <circle cx="12" cy="10" r="3" />
             </svg>
-            <span className="">Actief in Midden-Nederland</span>
+            <span className="">Actief in heel de Randstad</span>
           </div>
           <div className="flex items-center gap-3 justify-center md:pl-12">
             <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
