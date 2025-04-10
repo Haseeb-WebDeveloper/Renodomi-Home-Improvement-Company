@@ -598,9 +598,9 @@ export function ContactSection() {
               <h3 className="text-xl font-semibold">Waarom kiezen voor onze diensten?</h3>
               <ul className="space-y-3">
                 {[
-                  "Complete renovatie-oplossing",
+                  "Complete ontzorging",
                   "Startdatum binnen 2 weken",
-                  "Actief in heel de Randstad",
+                  "Actief in de hele Randstad",
                   "Subsidie-begeleiding",
                 ].map((item, index) => (
                   <motion.li

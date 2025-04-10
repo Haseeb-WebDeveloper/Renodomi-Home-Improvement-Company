@@ -78,13 +78,13 @@ export function HowWeWorkSection() {
             >
               <div className={`relative z-10 bg-foreground/5 backdrop-blur-lg rounded-2xl p-8 h-full border border-primary/10 hover:border-primary/20 transition-colors`}>
                 {/* Decorative gradient */}
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent rounded-2xl transition-opacity group-hover:opacity-100 opacity-0" />
+                {/* <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent rounded-2xl transition-opacity group-hover:opacity-100 opacity-0" /> */}
 
 
 
                 {/* Content */}
                 <div className="relative z-10">
-                  <div className="mb-6 inline-flex items-center justify-center w-12 h-12 rounded-xl bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
+                  <div className="mb-6 inline-flex items-center justify-center w-12 h-12 rounded-xl bg-primary/10 text-primary group-hover:bg-primary ">
                     {step.icon}
                   </div>
                   <h3 className="text-xl font-semibold mb-4">{step.title}</h3>
@@ -92,7 +92,7 @@ export function HowWeWorkSection() {
                 </div>
 
                 {/* Hover effect */}
-                <div className="absolute inset-0 border border-primary/50 scale-90 opacity-0 group-hover:scale-100 group-hover:opacity-100 transition-all duration-300 rounded-2xl" />
+                <div className="absolute inset-0 border border-primary/50 scale-95 opacity-0 group-hover:scale-100 group-hover:opacity-100 transition-all duration-300 rounded-2xl" />
               </div>
             </motion.div>
           ))}

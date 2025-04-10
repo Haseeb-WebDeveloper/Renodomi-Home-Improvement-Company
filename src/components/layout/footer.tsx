@@ -19,19 +19,17 @@ export function Footer() {
             />
           </Link>
 
-          {/* <div className="text-muted-foreground">
+          <div className="text-muted-foreground">
             <p>Werkgebied: heel Nederland</p>
-          </div> */}
+          </div>
 
           {/* Company Info */}
           <div className="text-muted-foreground space-y-2">
             <p>© 2025 Renodomi | KvK 94082286 | BTW NL866629191B01</p>
           </div>
             <div className="text-muted-foreground">
-              <Link className="hover:underline hover:text-primary" href="https://haseebkhan.online/" target="_blank" rel="noopener noreferrer">
-                <p>Developed by Haseeb Khan & Wasif Ali</p>
-              </Link>
-            </div>
+                <p>Developed by <a href="https://haseebkhan.online/" target="_blank" rel="noopener noreferrer">Haseeb Khan</a> & <a href="https://wasif-khan.netlify.app/" target="_blank" rel="noopener noreferrer">Wasif Ali</a></p>
+              </div>
         </div>
 
       </div>

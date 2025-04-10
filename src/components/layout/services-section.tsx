@@ -8,12 +8,12 @@ import Link from "next/link";
 const services = [
   {
     title: "Verduurzaming",
-    paragraph: "Maak uw woning toekomstbestendig met duurzame oplossingen die uw energiekosten verlagen en het wooncomfort verhogen.",
+    paragraph: "Verbeter het energielabel en verlaag de energiekosten van uw woning",
     image: "/isolatie.jpg",
     features: [
-      "Isolatie- en glaswerkzaamheden",
-      "Energiesystemen",
-      "Subsidieadvies voor verduurzaming"
+      "Isolatie en glas",
+      "Ventilatie",
+      "Energiesystemen"
     ],
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -26,12 +26,12 @@ const services = [
   },
   {
     title: "Verhuur/verkoop renovatie",
-    paragraph: "Wij bereiden uw vastgoed optimaal voor op verhuur of verkoop, met een gerichte focus op waardevermeerdering.",
+    paragraph: "Uw woning optimaal voorbereiden voor de verhuur- of verkoopmarkt",
     image: "/Verhuurklaar.jpg",
     features: [
-      "Waardeverhoging bij verhuur en verkoop",
-      "Efficiënte renovatie met standaardpakketten",
-      "Snelle en planmatige uitvoering"
+      "Vloeren en stuc-/schilderwerk",
+      "Badkamers en keukens",
+      "Afwerking"
     ],
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -44,12 +44,12 @@ const services = [
   },
   {
     title: "Totaal renovatie",
-    paragraph: "Complete transformatie van uw woning, van vloer tot plafond. We moderniseren elke ruimte vakkundig volgens de hoogste kwaliteitseisen.",
+    paragraph: "Complete transformatie van uw woning, inclusief verduurzaming en optimalisatie voor verhuur of verkoop",
     image: "/Energysystemen.jpg", 
     features: [
-      "Complete modernisering",
-      "Renovatie van alle ruimtes",
-      "Turn-key oplevering"
+      "Woningsplitsing",
+      "Herindeling",
+      "Complete verduurzaming",
     ],
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">

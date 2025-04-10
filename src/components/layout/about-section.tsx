@@ -18,7 +18,7 @@ export function AboutSection() {
             transition={{ duration: 0.5 }}
             className="relative"
           >
-            <div className="relative h-[450px] rounded-xl overflow-hidden">
+            <div className="relative h-[550px] rounded-xl overflow-hidden">
               <Image
                 src="/square-picture.jpg"
                 alt="Professional insulation work"
@@ -56,27 +56,38 @@ export function AboutSection() {
             className=""
           >
             <h2 className="text-4xl font-bold mb-8">Over ons</h2>
-            
+
 
             <div className="space-y-6 text-muted-foreground">
               <p>
-              Renodomi is een gespecialiseerd renovatiebedrijf dat zich richt op het verbeteren van woningen en bedrijfspanden in heel de randstad. Als expert in woningverbetering hebben we ruime ervaring in de renovatiebranche.
+                Renodomi helpt eigenaren om hun woning klaar te maken voor de toekomst. Als specialist in het
+                verduurzamen en verhuur- of verkoopklaar maken van woningen combineren wij verduurzaming en
+                renovatie in één duidelijk traject. Eén aanspreekpunt, vaste pakketten en volledig ontzorgd.
               </p>
-              
+
               <p>
-              Onze missie is om huiseigenaren te helpen hun woning te moderniseren en de waarde te verhogen. Dit doen we door het leveren van hoogwaardige renovatie-oplossingen, uitgevoerd door ons vakkundige team.
+                Of het nu gaat om isolatie, installaties, schilderwerk of afwerking — wij regelen het van begin tot eind. Van
+                de eerste opname tot de laatste afwerking: wij voeren dit snel, efficient en professioneel uit.
+
               </p>
-              
+
               <p>
-              Bij Renodomi begrijpen we dat elke woning uniek is. Daarom bieden we persoonlijk advies en maatwerk oplossingen die perfect aansluiten bij uw situatie en wensen. Van de eerste inspectie tot de laatste afwerking, u kunt rekenen op onze professionele aanpak en kwaliteitsgarantie.
+                Bij Renodomi krijgt u een ervaren team dat uw project van begin tot eind begeleidt. We houden u
+                doorlopend op de hoogte van planning en voortgang, en onze projectleiders zijn altijd bereikbaar voor
+                vragen. Ze zorgen voor een soepele uitvoering van alle werkzaamheden.
+              </p>
+
+              <p>
+                Resultaat staat bij ons voorop. We werken met efficiënte renovatiepakketten die we nauwkeurig
+                afstemmen op uw situatie, waardoor we zowel kwaliteit als een snelle doorlooptijd garanderen.
               </p>
 
             </div>
 
             {/* CTA Section */}
-              <Link href="#contact">
+            <Link href="#contact">
               <Button size="lg" className="w-full sm:w-auto mt-8 bg-foreground/90 text-background hover:bg-foreground/80">
-                 Ontvang uw gratis offerte
+                Ontvang uw gratis offerte
                 <svg
 
                   xmlns="http://www.w3.org/2000/svg"
@@ -94,7 +105,7 @@ export function AboutSection() {
                   <path d="m12 5 7 7-7 7" />
                 </svg>
               </Button>
-              </Link>
+            </Link>
           </motion.div>
 
         </div>
