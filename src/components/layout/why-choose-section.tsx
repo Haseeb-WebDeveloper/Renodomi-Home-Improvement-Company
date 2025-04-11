@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 const features = [
   {
     title: "Eén aanspreekpunt",
-    description: "Wij zorgen dat de woning in korte tijd klaar is voor verhuur of verkoop",
+    description: "Alles geregeld via één partij.",
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
