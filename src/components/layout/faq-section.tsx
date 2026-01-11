@@ -3,48 +3,87 @@
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import { useState } from "react";
+import { PortableText } from "@portabletext/react";
+import { HomePageData } from "@/lib/sanity/fetch";
 
-const faqs = [
+interface FAQSectionProps {
+  data?: HomePageData;
+}
+
+const defaultFaqs = [
   {
     question: "Wat houdt een verhuur/verkoop renovatie in?",
-    answer: (
-      <>
-        <p>
-          Een verhuur/verkoop renovatie is een gerichte renovatie om uw woning optimaal voor te bereiden op de verhuur- of verkoopmarkt. We focussen hierbij op werkzaamheden die de waarde en aantrekkelijkheid van uw woning maximaal verhogen, zoals het moderniseren van sanitair, upgraden van de keuken en het verbeteren van de algemene uitstraling. Deze renovaties worden efficiënt uitgevoerd volgens onze gestandaardiseerde aanpak, waardoor we efficient kunnen opleveren.
-        </p>
-      </>
-    ),
+    answer: [
+      {
+        _type: "block",
+        children: [
+          {
+            _type: "span",
+            text: "Een verhuur/verkoop renovatie is een gerichte renovatie om uw woning optimaal voor te bereiden op de verhuur- of verkoopmarkt. We focussen hierbij op werkzaamheden die de waarde en aantrekkelijkheid van uw woning maximaal verhogen, zoals het moderniseren van sanitair, upgraden van de keuken en het verbeteren van de algemene uitstraling. Deze renovaties worden efficiënt uitgevoerd volgens onze gestandaardiseerde aanpak, waardoor we efficient kunnen opleveren.",
+          },
+        ],
+      },
+    ],
   },
   {
     question: "Hoe lang duurt een renovatieproject gemiddeld?",
-    answer: (
-      <>
-        <p className="mb-4">
-          De doorlooptijd hangt af van de omvang van het project:
-        </p>
-        <ul className="list-disc pl-5 space-y-2">
-          <li>Verduurzaming: 2-3 weken</li>
-          <li>Verhuur/verkoop renovatie: 1-3 weken</li>
-          <li>Totaal renovatie: 6-8 weken</li>
-        </ul>
-      </>
-    ),
+    answer: [
+      {
+        _type: "block",
+        children: [
+          {
+            _type: "span",
+            text: "De doorlooptijd hangt af van de omvang van het project: Verduurzaming: 2-3 weken, Verhuur/verkoop renovatie: 1-3 weken, Totaal renovatie: 6-8 weken",
+          },
+        ],
+      },
+    ],
   },
   {
     question: "Kan ik subsidie krijgen voor renovatie?",
-    answer: "Voor bepaalde renovatiewerkzaamheden zijn er subsidies beschikbaar. We helpen u graag bij het verkennen van de mogelijkheden en het aanvragen van beschikbare subsidies.",
+    answer: [
+      {
+        _type: "block",
+        children: [
+          {
+            _type: "span",
+            text: "Voor bepaalde renovatiewerkzaamheden zijn er subsidies beschikbaar. We helpen u graag bij het verkennen van de mogelijkheden en het aanvragen van beschikbare subsidies.",
+          },
+        ],
+      },
+    ],
   },
   {
     question: "Moet ik thuis zijn tijdens de werkzaamheden?",
-    answer: "Het is niet noodzakelijk om de hele dag thuis te zijn. Wel vragen we u aanwezig te zijn bij de start en oplevering van het project.",
+    answer: [
+      {
+        _type: "block",
+        children: [
+          {
+            _type: "span",
+            text: "Het is niet noodzakelijk om de hele dag thuis te zijn. Wel vragen we u aanwezig te zijn bij de start en oplevering van het project.",
+          },
+        ],
+      },
+    ],
   },
   {
     question: "Welke garanties bieden jullie?",
-    answer: "Wij geven garantie op al onze werkzaamheden. De exacte garantietermijn is afhankelijk van het type renovatie en de gebruikte materialen. Bij het bouwvoorstel ontvangt u een uitgebreid garantieoverzicht met alle details.",
+    answer: [
+      {
+        _type: "block",
+        children: [
+          {
+            _type: "span",
+            text: "Wij geven garantie op al onze werkzaamheden. De exacte garantietermijn is afhankelijk van het type renovatie en de gebruikte materialen. Bij het bouwvoorstel ontvangt u een uitgebreid garantieoverzicht met alle details.",
+          },
+        ],
+      },
+    ],
   },
 ];
 
-function FAQItem({ question, answer, isOpen, onToggle, index }: { question: string; answer: React.ReactNode; isOpen: boolean; onToggle: () => void; index: number; }) {
+function FAQItem({ question, answer, isOpen, onToggle, index }: { question: string; answer: any[]; isOpen: boolean; onToggle: () => void; index: number; }) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -104,7 +143,7 @@ function FAQItem({ question, answer, isOpen, onToggle, index }: { question: stri
               className="overflow-hidden"
             >
               <div className="pb-6 text-muted-foreground">
-                {answer}
+                <PortableText value={answer} />
               </div>
             </motion.div>
           )}
@@ -114,8 +153,13 @@ function FAQItem({ question, answer, isOpen, onToggle, index }: { question: stri
   );
 }
 
-export function FAQSection() {
+export function FAQSection({ data }: FAQSectionProps) {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
+  
+  const faqTitle = data?.faqTitle || "Veelgestelde vragen";
+  const faqSubtitle = data?.faqSubtitle || "Vind antwoorden op veelgestelde vragen over onze diensten";
+  const faqs = data?.faqs || defaultFaqs;
+  const faqContactLinkText = data?.faqContactLinkText || "Neem contact op";
 
   return (
     <section className="relative py-24 ">
@@ -130,21 +174,20 @@ export function FAQSection() {
             className="text-center mb-8"
           >
             <h2 className="text-3xl font-bold mb-4">
-            Veelgestelde vragen
+              {faqTitle}
             </h2>
             <p className="text-muted-foreground">
-            Vind antwoorden op veelgestelde vragen over onze diensten
+              {faqSubtitle}
             </p>
           </motion.div>
-
 
           {/* FAQ List */}
           <div className="divide-y divide-primary/10">
             {faqs.map((faq, index) => (
               <FAQItem
-                key={index}
+                key={faq.question || index}
                 question={faq.question}
-                answer={faq.answer}
+                answer={faq.answer || []}
                 isOpen={openIndex === index}
                 onToggle={() => setOpenIndex(openIndex === index ? null : index)}
                 index={index}
@@ -160,12 +203,12 @@ export function FAQSection() {
             transition={{ duration: 0.5 }}
             className="mt-12 pt-8 text-center border-t border-primary/10"
           >
-            <Link href="#contact" className="text-muted-foreground">
-              Kan je niet vinden wat je zoekt? 
+            <span className="text-muted-foreground">
+              Kan je niet vinden wat je zoekt?{" "}
               <Link href="#contact" className="text-primary hover:text-primary/80 font-medium ml-2 transition-colors">
-                Neem contact op
+                {faqContactLinkText}
               </Link>
-            </Link>
+            </span>
           </motion.div>
         </div>
       </div>

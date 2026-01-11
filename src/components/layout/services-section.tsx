@@ -4,8 +4,14 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import { HomePageData } from "@/lib/sanity/fetch";
+import { urlFor } from "@/lib/sanity/client";
 
-const services = [
+interface ServicesSectionProps {
+  data?: HomePageData;
+}
+
+const defaultServices = [
   {
     title: "Verduurzaming",
     paragraph: "Verbeter het energielabel en verlaag de energiekosten van uw woning",
@@ -15,14 +21,7 @@ const services = [
       "Ventilatie",
       "Energiesystemen"
     ],
-    icon: (
-      <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M2 20h20" />
-        <path d="m4 14 8-8 8 8" />
-        <path d="M14 14v6" />
-      </svg>
-    ),
-    link:"https://duradomi.nl/"
+    link: "https://duradomi.nl/"
   },
   {
     title: "Verhuur/verkoop renovatie",
@@ -33,14 +32,7 @@ const services = [
       "Badkamers en keukens",
       "Afwerking"
     ],
-    icon: (
-      <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <rect width="18" height="18" x="3" y="3" rx="2" />
-        <path d="M3 9h18" />
-        <path d="M3 15h18" />
-      </svg>
-    ),
-      link:"#contact"
+    link: "#contact"
   },
   {
     title: "Totaal renovatie",
@@ -51,17 +43,13 @@ const services = [
       "Herindeling",
       "Complete verduurzaming",
     ],
-    icon: (
-      <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <rect width="18" height="18" x="3" y="3" rx="2" />
-        <path d="M3 15h18" />
-      </svg>
-    ),
-      link:"#contact"
+    link: "#contact"
   }
 ];
 
-export function ServicesSection() {
+export function ServicesSection({ data }: ServicesSectionProps) {
+  const servicesTitle = data?.servicesTitle || "Onze Diensten";
+  const services = data?.services || defaultServices;
   return (
     <section id="services" className="relative py-20 overflow-hidden bg-foreground/5">
     <div className="container relative mx-auto px-4">
@@ -74,7 +62,7 @@ export function ServicesSection() {
           className="text-center max-w-2xl mx-auto mb-8"
         >
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Onze Diensten
+            {servicesTitle}
           </h2>
         </motion.div>
 
@@ -95,8 +83,8 @@ export function ServicesSection() {
                   {/* Image */}
                   <div className="relative h-48 overflow-hidden">
                     <Image
-                      src={service.image}
-                      alt={service.title}
+                      src={service.image?.asset ? urlFor(service.image).url() : service.image || "/placeholder.jpg"}
+                      alt={service.image?.alt || service.title}
                       fill
                       className="object-cover object-top transition-transform duration-500 group-hover:scale-110"
                     />
@@ -108,7 +96,7 @@ export function ServicesSection() {
                     <p className="text-muted-foreground mb-4">{service.paragraph}</p>
                     {/* Features */}
                     <ul className="space-y-2">
-                      {service.features.map((feature, idx) => (
+                      {(service.features || []).map((feature, idx) => (
                         <motion.li
                           key={idx}
                           initial={{ opacity: 0, x: -20 }}
@@ -130,7 +118,7 @@ export function ServicesSection() {
                 {/* Action Button */}
                 <div className="p-6 pt-0">
                   <Link
-                    href={service.link}
+                    href={service.link || "#contact"}
                     className="flex items-center justify-center px-4 py-2 rounded-md bg-foreground/90 text-background w-full group-hover:bg-foreground/80 group-hover:text-primary-foreground transition-colors"
                   >
                     Contact Ons

@@ -4,8 +4,49 @@ import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
+import { HomePageData } from "@/lib/sanity/fetch";
+import { urlFor } from "@/lib/sanity/client";
 
-export function HeroSection() {
+interface HeroSectionProps {
+  data?: HomePageData;
+}
+
+const getFeatureIcon = (index: number) => {
+  const icons = [
+    <svg key={0} xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+      <polyline points="22 4 12 14.01 9 11.01" />
+    </svg>,
+    <svg key={1} xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <circle cx="12" cy="12" r="10" />
+      <polyline points="12 6 12 12 16 14" />
+    </svg>,
+    <svg key={2} xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
+      <circle cx="12" cy="10" r="3" />
+    </svg>,
+    <svg key={3} xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M21 12c0 1.2-4 6-9 6s-9-4.8-9-6c0-1.2 4-6 9-6s9 4.8 9 6Z" />
+      <circle cx="12" cy="12" r="3" />
+    </svg>,
+  ];
+  return icons[index % icons.length];
+};
+
+export function HeroSection({ data }: HeroSectionProps) {
+  const heroBadge = data?.heroBadge || "Renovatie en woningverbetering";
+  const heroHeading = data?.heroHeading || "Specialist in verduurzamen en verhuur-/ verkoopklaar opleveren";
+  const heroDescription = data?.heroDescription || "Met onze expertise in woningverbetering maken we uw woning duurzamer en klaar voor de toekomst.";
+  const heroCtaText = data?.heroCtaText || "Aan de slag";
+  const heroImage = data?.heroImage;
+  const heroFeatures = data?.heroFeatures || [
+    { text: "Complete ontzorging" },
+    { text: "Startdatum binnen 2 weken" },
+    { text: "Actief in de hele Randstad" },
+    { text: "Subsidie-begeleiding" },
+  ];
+
+  const heroImageUrl = heroImage?.asset ? urlFor(heroImage).url() : "/Banner.jpg";
   return (
     <>
       <div id="hero" className="mt-20 flex flex-col items-center justify-center overflow-hidden">
@@ -42,31 +83,34 @@ export function HeroSection() {
             className="mb-6"
 
           >
-            <span className="inline-block py-1.5 px-4 rounded-full border border-primary/20 text-primary font-medium text-sm">
-              Renovatie en woningverbetering
-            </span>
+            {heroBadge && (
+              <span className="inline-block py-1.5 px-4 rounded-full border border-primary/20 text-primary font-medium text-sm">
+                {heroBadge}
+              </span>
+            )}
           </motion.div>
 
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="max-w-5xl mx-auto text-4xl md:text-6xl lg:text-7xl font-bold mb-8  text-primary"
-          >
-            Specialist in {" "}
-            <span className="text-primary">
-            verduurzamen en verhuur-/ verkoopklaar opleveren
-            </span>
-          </motion.h1>
+          {heroHeading && (
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="max-w-5xl mx-auto text-4xl md:text-6xl lg:text-7xl font-bold mb-8  text-primary"
+            >
+              {heroHeading}
+            </motion.h1>
+          )}
 
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.4 }}
-            className="text-muted-foreground text-lg md:text-xl mb-12 max-w-2xl mx-auto"
-          >
-           Met onze expertise in woningverbetering maken we uw woning duurzamer en klaar voor de toekomst. 
-          </motion.p>
+          {heroDescription && (
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.4 }}
+              className="text-muted-foreground text-lg md:text-xl mb-12 max-w-2xl mx-auto"
+            >
+              {heroDescription}
+            </motion.p>
+          )}
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -76,7 +120,7 @@ export function HeroSection() {
           >
           <Link href="#contact">
             <Button size="lg" className="text-base min-w-[250px] h-12 bg-foreground/90 text-background hover:bg-foreground/80">
-              Aan de slag
+              {heroCtaText}
               <motion.svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
@@ -105,8 +149,8 @@ export function HeroSection() {
             className="relative h-[300px] md:h-[400px] mx-auto rounded-2xl overflow-hidden shadow-xl border border-border"
           >
             <Image
-              src="/Banner.jpg"
-              alt="Modern construction project"
+              src={heroImageUrl}
+              alt={heroImage?.alt || "Modern construction project"}
               fill
               className="object-cover object-center hover:scale-105 transition-transform duration-700"
               quality={100}
@@ -124,34 +168,12 @@ export function HeroSection() {
           transition={{ duration: 0.5, delay: 0.8 }}
           className="grid grid-cols-1 md:grid-cols-4 gap-3 items-center"
         >
-            <div className="flex items-center gap-3 justify-center">
-            <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
-              <polyline points="22 4 12 14.01 9 11.01" />
-            </svg>
-            <span className="">Complete ontzorging</span>
-          </div>
-          <div className="flex items-center gap-3 justify-center">
-            <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <circle cx="12" cy="12" r="10" />
-              <polyline points="12 6 12 12 16 14" />
-            </svg>
-            <span className=""> Startdatum binnen 2 weken</span>
-          </div>
-          <div className="flex items-center gap-3 justify-center md:pl-10">
-            <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
-              <circle cx="12" cy="10" r="3" />
-            </svg>
-            <span className="">Actief in de hele Randstad</span>
-          </div>
-          <div className="flex items-center gap-3 justify-center md:pl-12">
-            <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M21 12c0 1.2-4 6-9 6s-9-4.8-9-6c0-1.2 4-6 9-6s9 4.8 9 6Z" />
-              <circle cx="12" cy="12" r="3" />
-            </svg>
-            <span className="">Subsidie-begeleiding</span>
-          </div>
+          {heroFeatures.map((feature, index) => (
+            <div key={index} className={`flex items-center gap-3 justify-center ${index >= 2 ? 'md:pl-10' : ''} ${index === 3 ? 'md:pl-12' : ''}`}>
+              {getFeatureIcon(index)}
+              <span className="">{feature.text}</span>
+            </div>
+          ))}
         </motion.div>
       </div>
     </>

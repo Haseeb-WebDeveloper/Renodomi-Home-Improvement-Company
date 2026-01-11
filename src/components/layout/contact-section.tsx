@@ -8,6 +8,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { toast } from "sonner";
 import Link from "next/link";
 import { useRouter } from 'next/navigation';
+import { HomePageData } from "@/lib/sanity/fetch";
 
 interface ServiceType {
   id: string;
@@ -98,7 +99,7 @@ const initialFormData: FormData = {
   },
 };
 
-const steps = [
+const defaultSteps = [
   {
     id: 'services',
     title: 'Welk(e) type(n) dienstverlening wenst u?'
@@ -111,6 +112,13 @@ const steps = [
     id: 'personal',
     title: 'Vul alle informatie in en Ontvang een Prijsindicatie'
   }
+];
+
+const defaultContactBenefits = [
+  "Complete ontzorging",
+  "Startdatum binnen 2 weken",
+  "Actief in de hele Randstad",
+  "Subsidie-begeleiding",
 ];
 
 const houseTypes = [
@@ -163,12 +171,28 @@ const serviceConfig: ServiceConfig = {
   },
 };
 
-export function ContactSection() {
+interface ContactSectionProps {
+  data?: HomePageData;
+}
+
+export function ContactSection({ data }: ContactSectionProps) {
   const [formData, setFormData] = useState<FormData>(initialFormData);
   const [currentStep, setCurrentStep] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
   const [errors, setErrors] = useState<FormErrors>({});
   const router = useRouter();
+
+  const contactTitle = data?.contactTitle || "Vraag direct een vrijblijvende offerte aan";
+  const contactFormTitle = data?.contactFormTitle || "Gratis offerte aanvragen voor de isolatie van uw woning";
+  const contactSteps = data?.contactSteps || defaultSteps;
+  const contactPhone = data?.contactPhone || "+31850604466";
+  const contactEmail = data?.contactEmail || "info@Renodomi.nl";
+  const contactBenefits = data?.contactBenefits || defaultContactBenefits;
+
+  const steps = contactSteps.map((step, index) => ({
+    id: step.title.toLowerCase().replace(/\s+/g, '-'),
+    title: step.title,
+  }));
 
   const handleSubmit = async () => {
     try {
@@ -515,7 +539,7 @@ export function ContactSection() {
 
               {/* Main Title */}
               <h2 className="text-xl font-semibold text-center mb-6">
-                Gratis offerte aanvragen voor de isolatie van uw woning
+                {contactFormTitle}
               </h2>
 
               {/* Step Indicators */}
@@ -589,20 +613,14 @@ export function ContactSection() {
             className="space-y-8 lg:sticky lg:top-24 order-2 md:order-1"
           >
             <div>
-              <h2 className="text-4xl font-bold mb-6">Vraag direct een vrijblijvende offerte aan</h2>
+              <h2 className="text-4xl font-bold mb-6">{contactTitle}</h2>
             </div>
-
 
             {/* Why Contact Ons */}
             <div className="space-y-4">
               <h3 className="text-xl font-semibold">Waarom kiezen voor onze diensten?</h3>
               <ul className="space-y-3">
-                {[
-                  "Complete ontzorging",
-                  "Startdatum binnen 2 weken",
-                  "Actief in de hele Randstad",
-                  "Subsidie-begeleiding",
-                ].map((item, index) => (
+                {contactBenefits.map((item, index) => (
                   <motion.li
                     key={index}
                     initial={{ opacity: 0, x: -20 }}
@@ -639,9 +657,9 @@ export function ContactSection() {
                   </svg>
                 </div>
                 <div>
-                  <Link href="tel:+31850604466">
+                  <Link href={`tel:${contactPhone}`}>
                     <h3 className="font-semibold mb-1">Telefoon</h3>
-                    <p className="text-muted-foreground">+31850604466</p>
+                    <p className="text-muted-foreground">{contactPhone}</p>
                   </Link>
                 </div>
 
@@ -655,9 +673,9 @@ export function ContactSection() {
                   </svg>
                 </div>
                 <div>
-                  <Link href="mailto:info@Renodomi.nl">
+                  <Link href={`mailto:${contactEmail}`}>
                     <h3 className="font-semibold mb-1">Email</h3>
-                    <p className="text-muted-foreground">info@Renodomi.nl</p>
+                    <p className="text-muted-foreground">{contactEmail}</p>
                   </Link>
                 </div>
 

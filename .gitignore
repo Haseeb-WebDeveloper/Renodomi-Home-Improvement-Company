@@ -13,6 +13,11 @@
 # testing
 /coverage
 
+/studio-renodomi/*
+!/studio-renodomi/schemaTypes/
+
+
+
 # next.js
 /.next/
 /out/
