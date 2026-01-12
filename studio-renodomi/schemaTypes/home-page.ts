@@ -263,8 +263,9 @@ export const homePage = defineType({
             },
             {
               name: 'link',
-              type: 'url',
+              type: 'string',
               title: 'Service Link',
+              description: 'URL or hash anchor (e.g., https://..., /path, #contact)',
             },
           ],
           preview: {

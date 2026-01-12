@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { GeistSans } from 'geist/font/sans';
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
+import { SanityThemeProvider } from "@/components/providers/sanity-theme-provider";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { ContactPopupProvider } from "@/components/provider/contact-popup-provider";
@@ -33,18 +34,20 @@ export default function RootLayout({
         />
       </head>
       <body className="antialiased">
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="light"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <ContactPopupProvider>
-            <Header />
-            {children}
-            <Footer />
-          </ContactPopupProvider>
-        </ThemeProvider>
+        <SanityThemeProvider>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="light"
+            enableSystem
+            disableTransitionOnChange
+          >
+            <ContactPopupProvider>
+              <Header />
+              {children}
+              <Footer />
+            </ContactPopupProvider>
+          </ThemeProvider>
+        </SanityThemeProvider>
       </body>
     </html>
   );

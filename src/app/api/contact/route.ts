@@ -1,5 +1,7 @@
 import { NextResponse } from "next/server";
 import nodemailer from "nodemailer";
+import { getSiteSettings } from "@/lib/sanity/fetch";
+import { portableTextToHtml, replaceTemplateVariables } from "@/lib/utils/portable-text-to-html";
 
 interface ServiceType {
   id: string;
@@ -125,6 +127,22 @@ export async function POST(req: Request) {
 
     const selectedServices = formatSelectedServices(data.services);
 
+    // Fetch site settings from Sanity
+    const siteSettings = await getSiteSettings();
+    const emailConfig = siteSettings?.emailConfiguration;
+    const emailTemplates = siteSettings?.emailTemplates;
+
+    // Get email addresses (use Sanity values with env fallback)
+    const senderEmail = emailConfig?.senderEmail || process.env.SENDER_EMAIL;
+    const companyEmail = emailConfig?.companyEmail || process.env.COMPANY_EMAIL;
+
+    if (!senderEmail || !companyEmail) {
+      return NextResponse.json(
+        { error: "Email configuration is missing" },
+        { status: 500 }
+      );
+    }
+
     // Create email transporter
     const transporter = nodemailer.createTransport({
       host: "smtp-relay.brevo.com",
@@ -136,12 +154,36 @@ export async function POST(req: Request) {
       },
     });
 
-    // Email to company
-    const mailOptions = {
-      from: process.env.SENDER_EMAIL,
-      to: process.env.COMPANY_EMAIL,
-      subject: "Nieuwe offerte aanvraag",
-      html: `
+    // Prepare template variables
+    const templateVars: Record<string, string> = {
+      firstName: data.firstName || '',
+      lastName: data.lastName || '',
+      email: data.email || '',
+      phone: data.phone || '',
+      street: data.street || '',
+      number: data.number || '',
+      postalCode: data.postalCode || '',
+      houseType: data.houseType || '',
+      selectedServices: selectedServices.replace(/\n/g, '<br>'),
+      additionalInfo: data.additionalInfo || '',
+    };
+    
+    // Add nested custom inputs with dot notation
+    templateVars['customInputs.verhuurVerkoopRenovatie'] = data.customInputs.verhuurVerkoopRenovatie || '';
+    templateVars['customInputs.totaalRenovatie'] = data.customInputs.totaalRenovatie || '';
+
+    // Email to company - use Sanity template or fallback
+    let contactFormHtml: string;
+    if (emailTemplates?.contactFormTemplate && emailTemplates.contactFormTemplate.length > 0) {
+      const portableHtml = portableTextToHtml(emailTemplates.contactFormTemplate);
+      contactFormHtml = replaceTemplateVariables(portableHtml, templateVars);
+      // Wrap in email container if not already wrapped
+      if (!contactFormHtml.includes('<div style="font-family')) {
+        contactFormHtml = `<div style="font-family: Arial, sans-serif; padding: 20px; max-width: 600px; margin: 0 auto;">${contactFormHtml}</div>`;
+      }
+    } else {
+      // Fallback to original template
+      contactFormHtml = `
         <div style="font-family: Arial, sans-serif; padding: 20px; max-width: 600px; margin: 0 auto;">
           <h2 style="color: #333;">Nieuwe offerte aanvraag</h2>
           
@@ -186,18 +228,31 @@ export async function POST(req: Request) {
             </div>
           ` : ''}
         </div>
-      `
+      `;
+    }
+
+    const mailOptions = {
+      from: senderEmail,
+      to: companyEmail,
+      subject: emailTemplates?.contactFormSubject || "Nieuwe offerte aanvraag",
+      html: contactFormHtml,
     };
 
     // Send email
     await transporter.sendMail(mailOptions);
 
-    // Send auto-reply to customer
-    const autoReplyOptions = {
-      from: process.env.SENDER_EMAIL,
-      to: data.email,
-      subject: "Bedankt voor uw aanvraag - Renodomi",
-      html: `
+    // Send auto-reply to customer - use Sanity template or fallback
+    let autoReplyHtml: string;
+    if (emailTemplates?.autoReplyTemplate && emailTemplates.autoReplyTemplate.length > 0) {
+      const portableHtml = portableTextToHtml(emailTemplates.autoReplyTemplate);
+      autoReplyHtml = replaceTemplateVariables(portableHtml, templateVars);
+      // Wrap in email container if not already wrapped
+      if (!autoReplyHtml.includes('<div style="font-family')) {
+        autoReplyHtml = `<div style="font-family: Arial, sans-serif; padding: 20px; max-width: 600px; margin: 0 auto;">${autoReplyHtml}</div>`;
+      }
+    } else {
+      // Fallback to original template
+      autoReplyHtml = `
         <div style="font-family: Arial, sans-serif; padding: 20px; max-width: 600px; margin: 0 auto;">
           <h2 style="color: #333;">Bedankt voor uw aanvraag</h2>
           
@@ -214,7 +269,14 @@ export async function POST(req: Request) {
           
           <p>Met vriendelijke groet,<br>Team Renodomi</p>
         </div>
-      `
+      `;
+    }
+
+    const autoReplyOptions = {
+      from: senderEmail,
+      to: data.email,
+      subject: emailTemplates?.autoReplySubject || "Bedankt voor uw aanvraag - Renodomi",
+      html: autoReplyHtml,
     };
 
     // Send auto-reply
