@@ -8,7 +8,8 @@ import {
 const IS_DEVELOPMENT = process.env.NODE_ENV === "development";
 // Set a short revalidate window so published Sanity changes show quickly in production.
 // If you want true on-demand, set this to 0 and use a revalidation webhook.
-const DEFAULT_REVALIDATE_SECONDS = IS_DEVELOPMENT ? 10 : 30;
+// Reduced to 10 seconds for faster updates on live site
+const DEFAULT_REVALIDATE_SECONDS = IS_DEVELOPMENT ? 10 : 10;
 
 export const fetchSanityData = async <T>(
   query: string,
