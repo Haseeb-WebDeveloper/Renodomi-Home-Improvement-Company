@@ -83,8 +83,8 @@ export function ServicesSection({ data }: ServicesSectionProps) {
                   {/* Image */}
                   <div className="relative h-48 overflow-hidden">
                     <Image
-                      src={service.image?.asset ? urlFor(service.image).url() : service.image || "/placeholder.jpg"}
-                      alt={service.image?.alt || service.title}
+                      src={typeof service.image === 'string' ? service.image : (service.image?.asset ? urlFor(service.image).url() : "/placeholder.jpg")}
+                      alt={typeof service.image === 'string' ? service.title : (service.image?.alt || service.title)}
                       fill
                       className="object-cover object-top transition-transform duration-500 group-hover:scale-110"
                     />

@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { HomePageData } from "@/lib/sanity/fetch";
+import { HomePageData, HomePageWhyChooseFeature } from "@/lib/sanity/fetch";
 
 interface WhyChooseSectionProps {
   data?: HomePageData;
@@ -33,7 +33,7 @@ const getWhyChooseIcon = (index: number, iconName?: string) => {
   return icons[index % icons.length];
 };
 
-const defaultFeatures = [
+const defaultFeatures: HomePageWhyChooseFeature[] = [
   {
     title: "Eén aanspreekpunt",
     description: "Alles geregeld via één partij.",
