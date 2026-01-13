@@ -19,7 +19,8 @@ You need to add the same secret to your hosting platform's environment variables
 3. Go to **Settings** → **Environment Variables**
 4. Add a new variable:
    - **Name**: `SANITY_REVALIDATE_SECRET`
-   - **Value**: `8d60e2f2fae25f61f16fab42c768fbd966d3c4801bf50d017aff7007c2f56774`
+   - **Value**: 
+   `8d60e2f2fae25f61f16fab42c768fbd966d3c4801bf50d017aff7007c2f56774`
    - **Environment**: Production, Preview, Development (select all)
 5. Click **Save**
 6. **Redeploy** your application for the change to take effect
